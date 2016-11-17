@@ -1,0 +1,29 @@
+<%= form_for @location do |f| %>
+
+	<% if @location.errors.any? %>
+		<div class="error_explanation">
+			<h2>
+					<%= pluralize(@location.errors.count, 'error') %> prohibited 
+					this location from beign saved:
+			</h2>
+			<ul>
+				<% @location.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<p>
+		<%= f.label :region %>
+		<%= f.text_field :region %>
+	</p>
+
+	<p>
+		<%= f.label :town_or_city %>
+		<%= f.text_field :town_or_city %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
