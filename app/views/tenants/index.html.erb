@@ -17,12 +17,16 @@
 			<td><%= tenant.firstname%></td>
 			<td><%= tenant.phone %></td>
 			<td><%= tenant.email %></td>
+			<td><%= link_to 'Show',	tenant_path(tenant) %>
+														
+			</td>
 			<td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
 			<td><%= link_to 'Destroy',	tenant_path(tenant),	
 																	method: :delete,
 																	data: { confirm: 'Are you sure?' } %>
 														
 			</td>
+
 		</tr>
 		<% end %>
 	</tbody>
