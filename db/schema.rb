@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117174716) do
+ActiveRecord::Schema.define(version: 20161118072006) do
+
+  create_table "accommodations", force: :cascade do |t|
+    t.integer  "landlord_id"
+    t.integer  "accommodation_type_id"
+    t.integer  "location_id"
+    t.string   "picture"
+    t.text     "description"
+    t.decimal  "price"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["accommodation_type_id"], name: "index_accommodations_on_accommodation_type_id"
+    t.index ["landlord_id"], name: "index_accommodations_on_landlord_id"
+    t.index ["location_id"], name: "index_accommodations_on_location_id"
+  end
 
   create_table "landlords", force: :cascade do |t|
     t.string   "firstname"
