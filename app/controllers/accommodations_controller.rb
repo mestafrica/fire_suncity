@@ -48,6 +48,7 @@ class AccommodationsController < ApplicationController
 			params.require(:accommodation)
 			.permit(
 				:landlord_id,
+				:accommodation_type_id,
 				:location_id,
 				:picture,
 				:description,

@@ -20,6 +20,11 @@
 	</p>
 
 	<p>
+		<%= f.label :accommodation_type %>
+		<%= f.collection_select :accommodation_type_id, AccommodationType.all, :id, :name %>
+	</p>
+
+	<p>
 		<%= f.label :location %>
 		<%= f.collection_select :location_id, Location.all, :id, :region %>
 	</p>

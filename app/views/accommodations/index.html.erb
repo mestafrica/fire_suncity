@@ -16,7 +16,7 @@
 		<% @accommodations.each do |accommodation| %>
 		<tr>
 			<td><%= image_tag accommodation.picture.url if accommodation.picture? %></td>
-			<td><%= 'accommodation.accommodation_type' %></td>
+			<td><%= accommodation.accommodation_type.name %></td>
 			<td><%= accommodation.location.region %></td>
 			<td><%= accommodation.description %></td>
 			<td><%= accommodation.price %></td>
