@@ -1,0 +1,36 @@
+<h1>Accommodations</h1>
+
+<%= link_to 'New', new_accommodation_path %>
+<table>
+	<thead>
+		<tr>
+			<th>Picture</th>
+			<th>Type</th>
+			<th>Location</th>
+			<th>Description</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @accommodations.each do |accommodation| %>
+		<tr>
+			<td><%= image_tag accommodation.picture.url if accommodation.picture? %></td>
+			<td><%= 'accommodation.accommodation_type' %></td>
+			<td><%= accommodation.location.region %></td>
+			<td><%= accommodation.description %></td>
+			<td><%= accommodation.price %></td>
+			<td><%= link_to 'Show',	accommodation_path(accommodation) %>
+														
+			</td>
+			<td><%= link_to 'Edit', edit_accommodation_path(accommodation) %></td>
+			<td><%= link_to 'Destroy',	accommodation_path(accommodation),	
+																	method: :delete,
+																	data: { confirm: 'Are you sure?' } %>
+														
+			</td>
+
+		</tr>
+		<% end %>
+	</tbody>
+</table>
