@@ -1,0 +1,24 @@
+<%= form_for @accommodation_type do |f| %>
+
+	<% if @accommodation_type.errors.any? %>
+		<div class="error_explanation">
+			<h2>
+					<%= pluralize(@accommodation_type.errors.count, 'error') %> prohibited 
+					this accommodation_type from beign saved:
+			</h2>
+			<ul>
+				<% @accommodation_type.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

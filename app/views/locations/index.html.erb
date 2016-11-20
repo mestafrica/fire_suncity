@@ -1,0 +1,30 @@
+<h1>Locations</h1>
+
+<%= link_to 'New', new_location_path %>
+<table>
+	<thead>
+		<tr>
+			<th>Region</th>
+			<th>Town or City</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @locations.each do |location| %>
+		<tr>
+			<td><%= location.region %></td>
+			<td><%= location.town_or_city %></td>
+			<td><%= link_to 'Show',	location_path(location) %>
+														
+			</td>
+			<td><%= link_to 'Edit', edit_location_path(location) %></td>
+			<td><%= link_to 'Destroy',	location_path(location),	
+																	method: :delete,
+																	data: { confirm: 'Are you sure?' } %>
+														
+			</td>
+
+		</tr>
+		<% end %>
+	</tbody>
+</table>

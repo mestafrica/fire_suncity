@@ -1,0 +1,50 @@
+<%= form_for(@accommodation, html: { multipart: true }) do |f| %>
+
+	<% if @accommodation.errors.any? %>
+		<div class="error_explanation">
+			<h2>
+					<%= pluralize(@accommodation.errors.count, 'error') %> prohibited 
+					this accommodation from beign saved:
+			</h2>
+			<ul>
+				<% @accommodation.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<p>
+		<%= f.label :landlord %>
+		<%= f.collection_select :landlord_id, Landlord.all, :id, :firstname %>
+	</p>
+
+	<p>
+		<%= f.label :accommodation_type %>
+		<%= f.collection_select :accommodation_type_id, AccommodationType.all, :id, :name %>
+	</p>
+
+	<p>
+		<%= f.label :location %>
+		<%= f.collection_select :location_id, Location.all, :id, :region %>
+	</p>
+
+	<p>
+		<%= f.file_field :picture %>
+	</p>
+
+	<p>
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</p>
+
+	<p>
+		<%= f.label :price %>
+		<%= f.text_area :price %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117070909) do
+ActiveRecord::Schema.define(version: 20161118072006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accommodation_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "accommodations", force: :cascade do |t|
+    t.integer  "landlord_id"
+    t.integer  "accommodation_type_id"
+    t.integer  "location_id"
+    t.string   "picture"
+    t.text     "description"
+    t.decimal  "price"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["accommodation_type_id"], name: "index_accommodations_on_accommodation_type_id", using: :btree
+    t.index ["landlord_id"], name: "index_accommodations_on_landlord_id", using: :btree
+    t.index ["location_id"], name: "index_accommodations_on_location_id", using: :btree
+  end
+
+  create_table "landlords", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "region"
+    t.string   "town_or_city"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "tenants", force: :cascade do |t|
     t.string   "firstname"
@@ -24,4 +60,7 @@ ActiveRecord::Schema.define(version: 20161117070909) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "accommodations", "accommodation_types"
+  add_foreign_key "accommodations", "landlords"
+  add_foreign_key "accommodations", "locations"
 end

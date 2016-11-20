@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  landlord: one
+  accommodation_type: one
+  location: one
+  picture: MyString
+  description: MyText
+  price: 9.99
+
+two:
+  landlord: two
+  accommodation_type: two
+  location: two
+  picture: MyString
+  description: MyText
+  price: 9.99

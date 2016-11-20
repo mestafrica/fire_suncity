@@ -1,0 +1,35 @@
+<h1> Show Accommodation </h1>
+
+<p>
+	<strong>Picture:</strong>
+	<%= image_tag @accommodation.picture.url if @accommodation.picture? %>
+</p>
+
+<p>
+	<strong>Type:</strong>
+	<%= @accommodation.accommodation_type.name %>
+</p>
+
+<p>
+	<strong>Price:</strong>
+	<%= @accommodation.price %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= @accommodation.description %>
+</p>
+
+<p>
+	<strong>Landlord:</strong>
+	<%= @accommodation.landlord.firstname %>
+	<%= @accommodation.landlord.lastname %>
+	<%= @accommodation.landlord.email %>
+	<%= @accommodation.landlord.phone %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_accommodation_path(@accommodation) %>
+|
+<%= link_to 'Back', accommodations_path %>
