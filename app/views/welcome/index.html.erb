@@ -1,0 +1,32 @@
+<h1>Welcome to SunCity!</h1>
+
+<!-- Searchbar -->
+<%= form_tag root_path, :method => 'get', id: 'search-form' do %>
+	<p>
+		<%= text_field_tag :search, params[:search], placeholder: 'Search Accommodations' %>
+		<%= submit_tag "Search", :name => nil %>
+	</p>
+<% end %>
+
+
+<!-- List of accommodations -->
+<% if @accommodations.present? %>
+	<div class="accommodations">
+		<% @accommodations.each do |accommodation| %>
+			<div class="accommodation">
+				<%= link_to showcase_path(accommodation) do %>
+					<%= image_tag accommodation.picture.url if accommodation.picture? %>
+					<p><%= accommodation.accommodation_type.name %></p>
+					<p><%= accommodation.location.region %></p>
+					<p><%= accommodation.description %></p>
+					<p>GHS: <%= accommodation.price %></p>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<% if params[:search] %>
+		<%= link_to "Back", :back %>
+	<% end %>
+<% else %>
+	<p>There are no accommodations containing the terms(s) <%= params[:search] %> </p>
+<% end %>

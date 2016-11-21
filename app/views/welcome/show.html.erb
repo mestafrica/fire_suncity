@@ -1,0 +1,27 @@
+<h1> Show Accommodation </h1>
+
+<p>
+	<strong>Picture:</strong>
+	<%= image_tag @accommodation.picture.url if @accommodation.picture? %>
+</p>
+
+<p>
+	<strong>Type:</strong>
+	<%= @accommodation.accommodation_type.name %>
+</p>
+
+<p>
+	<strong>Price:</strong>
+	<%= @accommodation.price %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= @accommodation.description %>
+</p>
+
+<p>
+	<%= link_to "Contact Owner", contact_path(@accommodation) %>
+</p>
+
+<%= link_to "Back", root_path %>
