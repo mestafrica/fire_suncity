@@ -9,6 +9,20 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Suncity", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   root_path %></li>
+            <li><%= link_to 'My Spaces', '#' %></li>
+            <li><%= link_to 'Rent my space out', '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
