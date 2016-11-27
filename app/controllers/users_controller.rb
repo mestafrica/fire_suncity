@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  # TODO: Prevent this from being accessed by non-admin
+  # Remove it all together in future and put its functionality
+  # in the admin page
 	def index
 		@users = User.all
 	end

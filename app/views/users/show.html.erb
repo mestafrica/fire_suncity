@@ -1,5 +1,14 @@
-<h1> Show User </h1>
+<h1> Welcome <%= @user.first_name %>!  </h1>
+<hr>
 
+<h2>Spaces I have rented out</h2>
+<p>List of users Accommodations</p>
+<hr>
+
+
+
+
+<h2>Profile</h2>
 <p>
 	<strong>Name:</strong>
 	<%= @user.full_name %>
@@ -15,8 +24,9 @@
 	<%= @user.email %>
 </p>
 
-
-
 <%= link_to 'Edit', edit_user_path(@user) %>
-|
-<%= link_to 'Back', users_path %>
+
+
+
+
+
