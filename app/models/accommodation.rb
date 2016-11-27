@@ -1,4 +1,5 @@
 class Accommodation < ApplicationRecord
+  belongs_to :user
   belongs_to :accommodation_type
   belongs_to :location
   mount_uploader :picture, PictureUploader

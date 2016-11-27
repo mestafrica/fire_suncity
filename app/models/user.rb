@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :accommodations
 	before_save { self.email = email.downcase }
 	validates :first_name, :last_name, :phone_number,
 						presence: true,
