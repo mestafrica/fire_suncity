@@ -15,8 +15,8 @@
 	<% end %>
 
 	<p>
-		<%= f.label :landlord %>
-		<%= f.collection_select :landlord_id, Landlord.all, :id, :firstname %>
+		<%= f.label :user %>
+		<%= f.collection_select :user_id, User.all, :id, :firstname %>
 	</p>
 
 	<p>
